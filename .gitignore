@@ -1,0 +1,10 @@
+.DS_Store
+.svn
+
+build
+check
+
+*.pbxuser
+*.perspectivev3
+*.mode*
+*.tmproj
