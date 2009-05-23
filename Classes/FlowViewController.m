@@ -52,7 +52,12 @@
 
 - (void) coverFlow:(UICoverFlowLayer *)coverFlow requestImageAtIndex:(int)index quality: (int)quality {
 	CameraFlowAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-	[coverFlow setImage:[[[appDelegate.cameraController previewView] layer] contents] atIndex:index type:quality];
+	UIView *previewView = [appDelegate.cameraController performSelector:@selector(previewView)];
+	id contents = previewView.layer.contents;
+	if (!contents) {
+		contents = [[previewView.layer.sublayers objectAtIndex:0] contents];
+	}
+	[coverFlow setImage:contents atIndex:index type:quality];
 }
 
 

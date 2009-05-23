@@ -30,8 +30,8 @@
 	self.cameraController = [(id)objc_getClass("PLCameraController") performSelector:@selector(sharedInstance)];
 	[cameraController setDelegate:self];
 	UIView *previewView = [cameraController performSelector:@selector(previewView)];
-	[cameraController performSelector:@selector(startPreview)];
 	[window addSubview:previewView];
+	[cameraController performSelector:@selector(startPreview)];
 	
 	self.flowViewController = [[FlowViewController alloc] init];
 	self.flowViewController.view.hidden = YES;
