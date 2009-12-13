@@ -27,6 +27,10 @@
 	self.phimg = [[UIImageView alloc] initWithFrame:phrect];
 	[self.cfLayer setPlaceholderImage: [self.phimg layer] atPlaceholderIndex:0];
 	
+	unsigned int *pharray = malloc(count * sizeof(int));
+	for (int i = 0; i < count; i++) pharray[i] = 0;;
+	[self.cfLayer setPlaceholderIndicesForCovers:pharray];
+	
 	return self;
 }
 
